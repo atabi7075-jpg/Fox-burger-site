@@ -3,318 +3,383 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#111111">
-<meta name="description" content="Fox Burger — burgers, tacos, pizzas et commandes WhatsApp.">
+<meta name="description" content="Fox Burger : burgers, tacos, pizzas, sandwichs et commandes WhatsApp.">
 <title>Fox Burger | Fast Food</title>
 <style>
-:root{--orange:#ff6b1a;--bg:#101010;--panel:#1b1b1b;--text:#fff8f2;--muted:#bdb7b2;--line:#34302d;--green:#25d366}
+:root{--o:#ff6b1a;--bg:#101010;--card:#1c1c1c;--line:#39332e;--white:#fff7f0;--muted:#bcb5af;--green:#25d366}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif;line-height:1.55}
 a{color:inherit;text-decoration:none}
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
 .container{width:min(1120px,92%);margin:auto}
-.topbar{background:#090909;border-bottom:1px solid #292929;position:sticky;top:0;z-index:20}
-.nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-size:24px;font-weight:900;letter-spacing:1px}
-.logo span{color:var(--orange)}
-.navlinks{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-.navlinks a:hover{color:var(--orange)}
-.pill,.btn{display:inline-block;border:0;border-radius:999px;padding:11px 18px;font-weight:800;background:var(--orange);color:#17100b}
-.hero{padding:76px 0 68px;background:radial-gradient(ellipse at 75% 30%,#51250f 0,transparent 42%),linear-gradient(135deg,#17110e,#101010 65%)}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:34px}
-.eyebrow{color:var(--orange);letter-spacing:3px;font-size:13px;font-weight:800}
-.hero h1{font-size:clamp(38px,6vw,68px);line-height:1.04;margin:12px 0}
-.hero p{color:var(--muted);max-width:520px}
-.hero img{width:100%;height:340px;object-fit:cover;border-radius:24px;border:1px solid #493021;box-shadow:0 18px 55px #0008}
-.btn-outline{background:transparent;color:var(--text);border:1px solid #635044;margin-left:8px}
-.section{padding:62px 0}
-.section-head{text-align:center;margin-bottom:28px}
-.section-head h2{font-size:clamp(28px,4vw,40px);margin:6px 0}
-.section-head p{color:var(--muted);margin:0}
-.search{width:100%;padding:14px 16px;background:#1b1b1b;color:white;border:1px solid var(--line);border-radius:12px;margin:18px 0}
-.filters{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:26px}
-.filter-btn{border:1px solid #39312b;background:#202020;color:#eee;border-radius:999px;padding:9px 13px}
-.filter-btn.active,.filter-btn:hover{background:var(--orange);color:#17100b;border-color:var(--orange)}
-.menu-group{margin:28px 0}
-.menu-group h3{font-size:20px;border-left:4px solid var(--orange);padding-left:12px}
-.items{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:15px}
-.item{overflow:hidden;background:var(--panel);border:1px solid var(--line);border-radius:16px;transition:transform .2s,border-color .2s}
-.item:hover{transform:translateY(-3px);border-color:var(--orange)}
-.food-photo{display:block;width:100%;height:160px;object-fit:cover;background:#28221e}
-.food-info{padding:13px}
-.food-name{font-weight:800;color:var(--text);min-height:28px}
-.price{display:block;color:#ff9b61;font-size:18px;font-weight:800;margin:6px 0 10px}
-.size-select{width:100%;padding:8px;background:#111;color:white;border:1px solid #45403c;border-radius:8px;margin:2px 0 8px}
-.add-food{width:100%;padding:11px;border:0;border-radius:9px;background:var(--orange);color:#1b1009;font-weight:900}
-.cart-box{margin:35px 0 0;padding:22px;border:1px solid var(--orange);border-radius:18px;background:#191715}
-.cart-head{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
-.cart-head h3{margin:0}
-.cart-line{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #37312c}
+header{position:sticky;top:0;z-index:10;background:#090909;border-bottom:1px solid #333}
+nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;padding:12px 0}
+.logo{font-size:25px;font-weight:900}.logo span,.orange{color:var(--o)}
+.links{display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-size:14px}
+.links a:hover{color:var(--o)}
+.btn{display:inline-block;border:0;border-radius:30px;background:var(--o);color:#17100b;font-weight:800;padding:12px 19px}
+.hero{padding:65px 0;background:radial-gradient(ellipse at 80% 25%,#54250f,transparent 45%),#15120f}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.eyebrow{font-size:12px;letter-spacing:3px;font-weight:bold;color:var(--o)}
+h1{font-size:clamp(38px,6vw,66px);line-height:1.08;margin:15px 0}
+.hero p,.muted{color:var(--muted)}
+.hero img{width:100%;height:330px;object-fit:cover;border-radius:20px;border:1px solid #583821}
+section.content{padding:55px 0}
+.heading{text-align:center;margin-bottom:25px}
+.heading h2{font-size:clamp(28px,4vw,40px);margin:8px 0}
+.search{width:100%;padding:14px;background:#1c1c1c;border:1px solid var(--line);border-radius:12px;color:white;margin:12px 0 20px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:25px}
+.filter{border:1px solid var(--line);border-radius:22px;padding:8px 13px;background:#202020;color:white}
+.filter.active,.filter:hover{background:var(--o);color:#160e09}
+.group{margin:28px 0}.group h3{border-left:4px solid var(--o);padding-left:12px}
+.items{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:14px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:15px;overflow:hidden}
+.item:hover{border-color:var(--o)}
+.food-photo{width:100%;height:155px;object-fit:cover;display:block;background:#29221d}
+.food-info{padding:12px}
+.food-name{font-weight:800;min-height:25px}
+.price{display:block;color:#ff9b61;font-weight:900;font-size:18px;margin:7px 0}
+.size-select{width:100%;padding:8px;background:#111;color:white;border:1px solid #51483f;border-radius:8px;margin:3px 0}
+.add{width:100%;padding:10px;border:0;border-radius:9px;background:var(--o);color:#160e09;font-weight:900}
+.cart{margin-top:35px;padding:20px;border:1px solid var(--o);border-radius:16px;background:#191715}
+.cart-line{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #39332e}
 .cart-name{flex:1}
-.cart-controls{display:flex;align-items:center;gap:7px}
-.cart-controls button{background:#302b27;color:white;border:1px solid #51463e;border-radius:7px;min-width:30px;min-height:30px}
-.remove-item{color:#ff9270!important}
-.total-row{display:flex;justify-content:space-between;gap:12px;font-size:21px;font-weight:900;padding-top:18px}
-.order-btn{width:100%;margin-top:16px;padding:14px;background:var(--green);color:#063c18;border:0;border-radius:999px;font-weight:900}
-.small-note{font-size:13px;color:var(--muted)}
-.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.info-card{padding:22px;background:var(--panel);border:1px solid var(--line);border-radius:16px}
-.info-card h3{margin-top:0;color:var(--orange)}
-.info-card p{color:var(--muted)}
-.info-card a{color:#ffab7a;text-decoration:underline}
-.reservation{max-width:680px;margin:auto;background:var(--panel);padding:22px;border:1px solid var(--line);border-radius:18px}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.controls{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.controls button{background:#302b27;color:white;border:1px solid #51483f;border-radius:7px;padding:5px 9px}
+.total{display:flex;justify-content:space-between;font-size:21px;font-weight:900;padding-top:18px}
+.wa{display:block;width:100%;padding:14px;background:var(--green);color:#073719;border:0;border-radius:25px;font-weight:900;margin-top:15px}
+.note{font-size:12px;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.info{padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.info h3{color:var(--o)}
+.info p{color:var(--muted)}
+.info a{color:#ffad7e;text-decoration:underline}
+.form{max-width:680px;margin:auto;padding:22px;border:1px solid var(--line);background:var(--card);border-radius:16px}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .field{display:flex;flex-direction:column;gap:6px}
 .field.full{grid-column:1/-1}
-.field label{font-weight:700;font-size:14px}
-.field input,.field select,.field textarea{width:100%;padding:12px;border-radius:9px;border:1px solid #46403b;background:#111;color:white}
-.reservation button{width:100%;margin-top:16px}
-.footer{border-top:1px solid #292929;padding:24px 0;color:var(--muted);text-align:center}
-.floating-wa{position:fixed;right:16px;bottom:16px;z-index:30;background:var(--green);color:#063c18;padding:12px 16px;border-radius:999px;font-weight:900;box-shadow:0 5px 20px #0008}
-.empty{padding:18px;color:var(--muted);text-align:center}
-@media(max-width:720px){
-.nav{padding:12px 0;align-items:flex-start;flex-direction:column}
-.navlinks{gap:12px;font-size:14px}
-.hero{padding:48px 0}
-.hero-grid{grid-template-columns:1fr}
-.hero img{height:240px}
-.section{padding:45px 0}
+.field input,.field select,.field textarea{padding:12px;background:#111;color:white;border:1px solid #49423c;border-radius:8px;width:100%}
+.form button{margin-top:16px;width:100%}
+footer{text-align:center;padding:25px;border-top:1px solid #333;color:var(--muted)}
+.floatwa{position:fixed;right:14px;bottom:14px;z-index:15;background:var(--green);color:#073719;font-weight:bold;padding:12px 16px;border-radius:25px}
+@media(max-width:700px){
+nav{align-items:flex-start}.links{gap:12px}
+.hero{padding:42px 0}.hero-grid{grid-template-columns:1fr}
+.hero img{height:235px}
+section.content{padding:40px 0}
 .items{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
-.food-photo{height:112px}
-.food-info{padding:9px}
-.food-name{font-size:14px}
-.price{font-size:16px}
-.add-food{font-size:13px;padding:9px 5px}
-.info-grid{grid-template-columns:1fr}
+.food-photo{height:115px}.food-info{padding:9px}
+.food-name{font-size:14px}.price{font-size:16px}
+.add{font-size:12px;padding:9px 4px}
+.cards{grid-template-columns:1fr}
+.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}
 .cart-line{align-items:flex-start;flex-direction:column}
-.cart-controls{align-self:flex-end}
-.form-grid{grid-template-columns:1fr}
-.field.full{grid-column:auto}
-.btn-outline{margin:8px 0 0}
+.controls{align-self:flex-end}
 }
 </style>
 </head>
 <body>
-<header class="topbar">
-<div class="container nav">
+<header>
+<nav class="container">
 <a class="logo" href="#home">FOX <span>BURGER</span></a>
-<nav class="navlinks">
-<a href="#home">Accueil</a><a href="#menu">Menu</a><a href="#location">Localisation</a><a href="#reservation">Réservation</a><a class="pill" href="#menu">Commander</a>
-</nav>
+<div class="links">
+<a href="#home">Accueil</a><a href="#menu">Menu</a>
+<a href="#location">Localisation</a><a href="#reservation">Réservation</a>
 </div>
+</nav>
 </header>
+
 <main>
 <section class="hero" id="home">
 <div class="container hero-grid">
 <div>
-<div class="eyebrow">FOX BURGER • FAST FOOD</div>
-<h1>Le goût qui<br><span style="color:var(--orange)">fait plaisir.</span></h1>
-<p>Burgers, tacos, pizzas et bien plus encore. Choisissez vos plats, composez votre panier et envoyez votre commande directement sur WhatsApp.</p>
+<div class="eyebrow">FOX BURGER · FAST FOOD</div>
+<h1>Le goût qui<br><span class="orange">fait plaisir.</span></h1>
+<p>Burgers, tacos, pizzas et bien plus encore ! Choisissez vos plats, ajoutez-les au panier et envoyez votre commande sur WhatsApp.</p>
 <a class="btn" href="#menu">Découvrir le menu</a>
-<a class="btn btn-outline" href="#location">Nous trouver</a>
 </div>
-<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1100&q=85" alt="Burger gourmand">
-</div>
-</section>
-<section class="section" id="menu">
-<div class="container">
-<div class="section-head">
-<div class="eyebrow">FAIT POUR VOUS</div><h2>🍔 Notre Menu</h2>
-<p>Découvrez nos spécialités et choisissez votre plat préféré.</p>
-</div>
-<input class="search" id="foodSearch" type="search" placeholder="🔎 Rechercher un plat...">
-<div class="filters" id="foodFilters"></div><div id="foodMenu"></div>
-<p class="small-note">Prix en dirhams marocains (DH). Les photos sont illustratives et peuvent différer des plats servis.</p>
-<div class="cart-box" id="cartBox">
-<div class="cart-head"><h3>🛒 Votre commande</h3><span class="small-note" id="cartCount">0 article</span></div>
-<div id="cartItems" class="empty">Votre panier est vide. Ajoutez un plat pour commencer.</div>
-<div class="total-row"><span>Total estimé</span><span id="cartTotal">0 DH</span></div>
-<button class="order-btn" id="sendOrder">Commander sur WhatsApp</button>
-<p class="small-note">Votre commande sera préparée en message WhatsApp. Le restaurant doit confirmer la disponibilité et le prix final.</p>
-</div>
+<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=85" alt="Burger gourmand">
 </div>
 </section>
-<section class="section" id="location">
+
+<section class="content" id="menu">
 <div class="container">
-<div class="section-head"><div class="eyebrow">ON VOUS ATTEND</div><h2>📍 Localisation & Contact</h2><p>Contactez Fox Burger pour toute question.</p></div>
-<div class="info-grid">
-<div class="info-card"><h3>📍 Adresse</h3><p>9HP5+6XC, Tagadirt, Maroc</p><a href="https://maps.app.goo.gl/MQdZqwFPG5CYLLBJ7" target="_blank" rel="noopener">Ouvrir dans Google Maps ↗</a></div>
-<div class="info-card"><h3>📞 Téléphone</h3><p>+212 717-774645</p><a href="tel:+212717774645">Appeler le restaurant ↗</a></div>
-<div class="info-card"><h3>💬 WhatsApp</h3><p>Une question ou une commande ?</p><a href="https://wa.me/212717774645" target="_blank" rel="noopener">Écrire sur WhatsApp ↗</a></div>
+<div class="heading">
+<div class="eyebrow">FAIT POUR VOUS</div>
+<h2>🍔 Notre Menu</h2>
+<p class="muted">Découvrez nos spécialités.</p>
+</div>
+<input class="search" id="search" type="search" placeholder="🔎 Rechercher un plat...">
+<div class="filters" id="filters"></div>
+<div id="menuItems"></div>
+<p class="note">Prix en dirhams marocains. Photos illustratives : elles peuvent différer des plats servis.</p>
+
+<div class="cart" id="cart">
+<h3>🛒 Votre panier</h3>
+<div id="cartItems">Votre panier est vide.</div>
+<div class="total"><span>Total</span><span id="total">0 DH</span></div>
+<button class="wa" id="order">Commander sur WhatsApp</button>
+<p class="note">La commande sera envoyée au restaurant pour confirmation.</p>
 </div>
 </div>
 </section>
-<section class="section" id="reservation">
+
+<section class="content" id="location">
 <div class="container">
-<div class="section-head"><div class="eyebrow">PLANIFIEZ VOTRE VISITE</div><h2>Réservation</h2><p>Remplissez les informations, puis envoyez votre demande sur WhatsApp.</p></div>
-<form class="reservation" id="reservationForm">
-<div class="form-grid">
-<div class="field"><label for="resName">Nom</label><input id="resName" name="name" required placeholder="Votre nom"></div>
-<div class="field"><label for="resPhone">Téléphone</label><input id="resPhone" name="phone" type="tel" required placeholder="Votre numéro"></div>
-<div class="field"><label for="resDate">Date souhaitée</label><input id="resDate" name="date" type="date" required></div>
-<div class="field"><label for="resTime">Heure souhaitée</label><input id="resTime" name="time" type="time" required></div>
-<div class="field"><label for="resPeople">Nombre de personnes</label><select id="resPeople" name="people"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7 ou plus</option></select></div>
-<div class="field full"><label for="resNotes">Message (facultatif)</label><textarea id="resNotes" name="notes" rows="3" placeholder="Informations complémentaires"></textarea></div>
+<div class="heading"><div class="eyebrow">ON VOUS ATTEND</div><h2>📍 Contact & Localisation</h2></div>
+<div class="cards">
+<div class="info"><h3>📍 Adresse</h3><p>9HP5+6XC, Tagadirt, Maroc</p><a href="https://maps.app.goo.gl/MQdZqwFPG5CYLLBJ7" target="_blank" rel="noopener">Ouvrir Google Maps ↗</a></div>
+<div class="info"><h3>📞 Téléphone</h3><p>+212 717-774645</p><a href="tel:+212717774645">Appeler ↗</a></div>
+<div class="info"><h3>💬 WhatsApp</h3><p>Contactez-nous directement.</p><a href="https://wa.me/212717774645" target="_blank" rel="noopener">Écrire sur WhatsApp ↗</a></div>
 </div>
-<button class="btn" type="submit">Envoyer la demande sur WhatsApp</button>
+</div>
+</section>
+
+<section class="content" id="reservation">
+<div class="container">
+<div class="heading"><div class="eyebrow">PLANIFIEZ VOTRE VISITE</div><h2>📅 Réservation</h2><p class="muted">Envoyez votre demande via WhatsApp.</p></div>
+<form class="form" id="reservationForm">
+<div class="formgrid">
+<div class="field"><label for="name">Nom</label><input id="name" required placeholder="Votre nom"></div>
+<div class="field"><label for="phone">Téléphone</label><input id="phone" type="tel" required placeholder="Votre numéro"></div>
+<div class="field"><label for="date">Date</label><input id="date" type="date" required></div>
+<div class="field"><label for="time">Heure</label><input id="time" type="time" required></div>
+<div class="field"><label for="people">Nombre de personnes</label><select id="people"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7 ou plus</option></select></div>
+<div class="field full"><label for="notes">Message facultatif</label><textarea id="notes" rows="3" placeholder="Informations complémentaires"></textarea></div>
+</div>
+<button class="btn" type="submit">Envoyer la réservation sur WhatsApp</button>
 </form>
 </div>
 </section>
 </main>
-<footer class="footer"><div class="container">© <span id="year"></span> Fox Burger. Tous droits réservés.</div></footer>
-<a class="floating-wa" href="https://wa.me/212717774645" target="_blank" rel="noopener">WhatsApp</a>
+<footer>© <span id="year"></span> Fox Burger · Tous droits réservés.</footer>
+<a class="floatwa" href="https://wa.me/212717774645" target="_blank" rel="noopener">WhatsApp</a>
+
 <script>
-(function(){
-const PHONE='212717774645';
+const PHONE="212717774645";
+
 const photos={
-SANDWICHES:'photo-1528735602780-2552fd46c7af',
-CHIKAS:'photo-1568901346375-23c9450c58cd',
-PANINIS:'photo-1528735602780-2552fd46c7af',
-SALADES:'photo-1512621776951-a57141f2eefd',
-TACOS:'photo-1552332386-f8dd00dc2f85',
-PLATS:'photo-1546069901-ba9599a7e63c',
-BURGERS:'photo-1568901346375-23c9450c58cd',
-POULETS:'photo-1598103442097-8b74394b95c6',
-PASTICCIO:'photo-1473093295043-cdd812d0e601',
-PIZZAS:'photo-1513104890138-7c749659a591',
-BOISSONS:'photo-1544145945-f90425340c7e',
-DESSERTS:'photo-1551024506-0bccd828d307',
-MENUS:'photo-1547592180-85f173990554',
-SUPPLEMENTS:'photo-1562967914-608f82629710'
+"SANDWICHES":"photo-1528735602780-2552fd46c7af",
+"CHIKAS":"photo-1568901346375-23c9450c58cd",
+"PANINIS":"photo-1528735602780-2552fd46c7af",
+"SALADES":"photo-1512621776951-a57141f2eefd",
+"TACOS":"photo-1552332386-f8dd00dc2f85",
+"PLATS":"photo-1546069901-ba9599a7e63c",
+"BURGERS":"photo-1568901346375-23c9450c58cd",
+"POULETS":"photo-1598103442097-8b74394b95c6",
+"PASTICCIO":"photo-1473093295043-cdd812d0e601",
+"PIZZAS":"photo-1513104890138-7c749659a591",
+"BOISSONS":"photo-1544145945-f90425340c7e",
+"DESSERTS":"photo-1551024506-0bccd828d307",
+"MENUS":"photo-1547592180-85f173990554",
+"SUPPLEMENTS":"photo-1562967914-608f82629710"
 };
-const photoURL=id=>'https://images.unsplash.com/'+id+'?auto=format&fit=crop&w=700&q=80';
+
+function photoURL(id){
+return "https://images.unsplash.com/"+id+"?auto=format&fit=crop&w=700&q=80";
+}
+
 const data={
-'SANDWICHES':[['Sandwiche Thon',12],['Sandwiche Dinde',15],['Sandwiche Kefta',15],['Sandwiche Escalope',15],['Sandwiche Poulet',15],['Sandwiche Hotdog',12],['Sandwiche Mixte',15]],
-'CHIKAS':[['Chika Dinde',25],['Chika Kefta',25],['Chika Escalope',25],['Chika Mixte',28],['Chika Blinde',30]],
-'PANINIS':[['Panini Thon',15],['Panini Dinde',16],['Panini Kefta',18],['Panini Escalope',18],['Panini Merguez',18],['Panini Hotdog',18],['Panini Mixte',22]],
-'SALADES':[['Salade Eco',10],['Salade Niçoise',15],['Salade Summi',17],['Salade Avocat Fish',25],['Salade Spécial',30]],
-'TACOS':[['Tacos Dinde',27],['Tacos Kefta',27],['Tacos Escalope',27],['Tacos Hot dog',25],['Tacos Gratiné',30],['Tacos Mixte',32]],
-'PLATS':[['Plat Dinde',27],['Plat Kefta',30],['Plat Escalope',27],['Plat Chicken',27],['Plat Mixte',36],['Plat Wings',25]],
-'BURGERS':[['Hamburger',15],['Cheese Burger',18],['Chicken Burger',18],['Double Cheese',25],['Double Chicken',25],['Fox Burger',27]],
-'POULETS':[['1/4 Poulet',25],['1/2 Poulet',50],['1 Poulet Entier',100]],
-'PASTICCIO':[['Pasticcio dinde',22],['Pasticcio kefta',22],['Pasticcio escalope',22],['Pasticcio mixte',25]],
-'PIZZAS':[['Pizza Margherita',18,28],['Pizza Kefta',28,40],['Pizza Thon',25,35],['Pizza Chika',25,35],['Pizza 4 Saisons',35,50],['Pizza Fox',30,45],['Pizza Fruits de mer',40,55]],
-'BOISSONS':[["Jus d'orange",13],['Jus de pomme',12],['Jus de banane',12],['Jus de citron',12],['Jus de carotte',12],['Jus de betterave',12],['Jus de concombre',12],['Mojito',15],['Jus de pêche',15],['Jus d’avocat',15],['Jus d’avocat aux fruits secs',20],['Eau minérale 1/2',5],['Canette 33cl',5],['Pepsi 1L',10]],
-'DESSERTS':[['Tiramisu',15],['Mousse Chocolat',12],['Cheese Cake',16]],
-'MENUS':[['MISTRAL',35],['LE ROYALE',35],['FONCTIONNAIRE',30],['TWIX',35],['MENU JUNIOR',30],['MENU DUO',33]],
-'SUPPLEMENTS':[['Wings (4p)',10],['Sauce',2],['Nuggets',15],['Fromage',2],['Oeuf',2]]
+"SANDWICHES":[["Sandwiche Thon",12],["Sandwiche Dinde",15],["Sandwiche Kefta",15],["Sandwiche Escalope",15],["Sandwiche Poulet",15],["Sandwiche Hotdog",12],["Sandwiche Mixte",15]],
+"CHIKAS":[["Chika Dinde",25],["Chika Kefta",25],["Chika Escalope",25],["Chika Mixte",28],["Chika Blinde",30]],
+"PANINIS":[["Panini Thon",15],["Panini Dinde",16],["Panini Kefta",18],["Panini Escalope",18],["Panini Merguez",18],["Panini Hotdog",18],["Panini Mixte",22]],
+"SALADES":[["Salade Eco",10],["Salade Niçoise",15],["Salade Summi",17],["Salade Avocat Fish",25],["Salade Spécial",30]],
+"TACOS":[["Tacos Dinde",27],["Tacos Kefta",27],["Tacos Escalope",27],["Tacos Hot dog",25],["Tacos Gratiné",30],["Tacos Mixte",32]],
+"PLATS":[["Plat Dinde",27],["Plat Kefta",30],["Plat Escalope",27],["Plat Chicken",27],["Plat Mixte",36],["Plat Wings",25]],
+"BURGERS":[["Hamburger",15],["Cheese Burger",18],["Chicken Burger",18],["Double Cheese",25],["Double Chicken",25],["Fox Burger",27]],
+"POULETS":[["1/4 Poulet",25],["1/2 Poulet",50],["1 Poulet Entier",100]],
+"PASTICCIO":[["Pasticcio dinde",22],["Pasticcio kefta",22],["Pasticcio escalope",22],["Pasticcio mixte",25]],
+"PIZZAS":[["Pizza Margherita",18,28],["Pizza Kefta",28,40],["Pizza Thon",25,35],["Pizza Chika",25,35],["Pizza 4 Saisons",35,50],["Pizza Fox",30,45],["Pizza Fruits de mer",40,55]],
+"BOISSONS":[["Jus d'orange",13],["Jus de pomme",12],["Jus de banane",12],["Jus de citron",12],["Jus de carotte",12],["Jus de betterave",12],["Jus de concombre",12],["Mojito",15],["Jus de pêche",15],["Jus d'avocat",15],["Jus d'avocat aux fruits secs",20],["Eau minérale 1/2",5],["Canette 33cl",5],["Pepsi 1L",10]],
+"DESSERTS":[["Tiramisu",15],["Mousse Chocolat",12],["Cheese Cake",16]],
+"MENUS":[["MISTRAL",35],["LE ROYALE",35],["FONCTIONNAIRE",30],["TWIX",35],["MENU JUNIOR",30],["MENU DUO",33]],
+"SUPPLEMENTS":[["Wings (4p)",10],["Sauce",2],["Nuggets",15],["Fromage",2],["Oeuf",2]]
 };
-const menu=document.getElementById('foodMenu');
-const filters=document.getElementById('foodFilters');
-const search=document.getElementById('foodSearch');
-let selected='TOUT',cart=[];
-const money=n=>Number(n).toLocaleString('fr-MA',{maximumFractionDigits:2})+' DH';
-function addItem(name,price,size){
-const found=cart.find(x=>x.name===name&&x.size===(size||''));
-if(found)found.qty++;
-else cart.push({name,price,size:size||'',qty:1});
-renderCart();
-document.getElementById('cartBox').scrollIntoView({behavior:'smooth',block:'nearest'});
-}
-function renderCart(){
-const list=document.getElementById('cartItems');
-list.innerHTML='';
-let total=0,count=0;
-if(!cart.length){
-list.className='empty';
-list.textContent='Votre panier est vide. Ajoutez un plat pour commencer.';
-}else{
-list.className='';
-cart.forEach((item,index)=>{
-total+=item.price*item.qty;count+=item.qty;
-const line=document.createElement('div');line.className='cart-line';
-const name=document.createElement('div');name.className='cart-name';
-name.textContent=item.name+(item.size?' — '+item.size:'')+' · '+money(item.price)+' chacun';
-const controls=document.createElement('div');controls.className='cart-controls';
-const minus=document.createElement('button');minus.textContent='−';minus.setAttribute('aria-label','Diminuer');
-minus.onclick=()=>{item.qty--;if(item.qty<1)cart.splice(index,1);renderCart();};
-const qty=document.createElement('strong');qty.textContent=item.qty;
-const plus=document.createElement('button');plus.textContent='+';plus.setAttribute('aria-label','Augmenter');
-plus.onclick=()=>{item.qty++;renderCart();};
-const remove=document.createElement('button');remove.textContent='Supprimer';remove.className='remove-item';
-remove.onclick=()=>{cart.splice(index,1);renderCart();};
-controls.append(minus,qty,plus,remove);line.append(name,controls);list.appendChild(line);
-});
-}
-document.getElementById('cartTotal').textContent=money(total);
-document.getElementById('cartCount').textContent=count+' article'+(count>1?'s':'');
-}
+
+const menu=document.getElementById("menuItems");
+const filters=document.getElementById("filters");
+const search=document.getElementById("search");
+let category="TOUT";
+let cart=[];
+
+function money(n){return n+" DH";}
+
 function renderMenu(){
-filters.innerHTML='';
-['TOUT',...Object.keys(data)].forEach(cat=>{
-const b=document.createElement('button');
-b.className='filter-btn'+(selected===cat?' active':'');
+filters.innerHTML="";
+["TOUT",...Object.keys(data)].forEach(cat=>{
+const b=document.createElement("button");
+b.className="filter"+(category===cat?" active":"");
 b.textContent=cat;
-b.onclick=()=>{selected=cat;renderMenu();};
+b.onclick=()=>{category=cat;renderMenu();};
 filters.appendChild(b);
 });
-menu.innerHTML='';
-const q=search.value.toLocaleLowerCase('fr').trim();
+
+menu.innerHTML="";
+const q=search.value.trim().toLocaleLowerCase("fr");
+
 Object.entries(data).forEach(([cat,items])=>{
-if(selected!=='TOUT'&&selected!==cat)return;
-const matches=items.filter(item=>(item[0]+' '+cat).toLocaleLowerCase('fr').includes(q));
-if(!matches.length)return;
-const group=document.createElement('section');group.className='menu-group';
-const h=document.createElement('h3');h.textContent='NOS '+cat;group.appendChild(h);
-const grid=document.createElement('div');grid.className='items';
-matches.forEach(([name,small,large])=>{
-const card=document.createElement('article');card.className='item';
-const img=document.createElement('img');img.className='food-photo';
-img.src=photoURL(photos[cat]);img.alt=name;img.loading='lazy';
-img.onerror=()=>{img.onerror=null;img.src='https://placehold.co/700x400/211b17/ff8a43?text=Fox+Burger';};
-const info=document.createElement('div');info.className='food-info';
-const title=document.createElement('div');title.className='food-name';title.textContent=name;info.appendChild(title);
-let price=small,size='';
+if(category!=="TOUT"&&category!==cat)return;
+const matching=items.filter(x=>(x[0]+" "+cat).toLocaleLowerCase("fr").includes(q));
+if(!matching.length)return;
+
+const group=document.createElement("section");
+group.className="group";
+const h=document.createElement("h3");
+h.textContent=cat;
+group.appendChild(h);
+
+const grid=document.createElement("div");
+grid.className="items";
+
+matching.forEach(item=>{
+const [name,small,large]=item;
+const card=document.createElement("article");
+card.className="item";
+
+const img=document.createElement("img");
+img.className="food-photo";
+img.src=photoURL(photos[cat]);
+img.alt=name;
+img.loading="lazy";
+img.onerror=()=>{img.onerror=null;img.src="https://placehold.co/700x400/211b17/ff8a43?text=Fox+Burger";};
+
+const info=document.createElement("div");
+info.className="food-info";
+
+const title=document.createElement("div");
+title.className="food-name";
+title.textContent=name;
+info.appendChild(title);
+
+let price=small;
+let size="";
+
 if(large!==undefined){
-const select=document.createElement('select');select.className='size-select';
+const select=document.createElement("select");
+select.className="size-select";
 select.innerHTML='<option value="small">Petite — '+small+' DH</option><option value="large">Grande — '+large+' DH</option>';
-select.onchange=()=>{price=select.value==='large'?large:small;size=select.value==='large'?'Grande':'Petite';priceLabel.textContent=money(price);};
+select.onchange=()=>{
+price=select.value==="large"?large:small;
+size=select.value==="large"?"Grande":"Petite";
+priceLabel.textContent=money(price);
+};
 info.appendChild(select);
 }
-const priceLabel=document.createElement('span');priceLabel.className='price';priceLabel.textContent=money(price);info.appendChild(priceLabel);
-const add=document.createElement('button');add.className='add-food';add.textContent='Ajouter au panier +';
+
+const priceLabel=document.createElement("span");
+priceLabel.className="price";
+priceLabel.textContent=money(price);
+info.appendChild(priceLabel);
+
+const add=document.createElement("button");
+add.className="add";
+add.textContent="Ajouter au panier +";
 add.onclick=()=>{
 if(large!==undefined){
-const select=info.querySelector('select');
-price=select.value==='large'?large:small;
-size=select.value==='large'?'Grande':'Petite';
+const select=info.querySelector("select");
+price=select.value==="large"?large:small;
+size=select.value==="large"?"Grande":"Petite";
 }
-addItem(name,price,size);
+addToCart(name,price,size);
 };
-info.appendChild(add);card.append(img,info);grid.appendChild(card);
+info.appendChild(add);
+
+card.append(img,info);
+grid.appendChild(card);
 });
-group.appendChild(grid);menu.appendChild(group);
+
+group.appendChild(grid);
+menu.appendChild(group);
 });
-if(!menu.children.length)menu.innerHTML='<div class="empty">Aucun plat trouvé.</div>';
+
+if(!menu.children.length)menu.textContent="Aucun plat trouvé.";
 }
-search.addEventListener('input',renderMenu);
-document.getElementById('sendOrder').addEventListener('click',()=>{
-if(!cart.length){alert('Votre panier est vide. Ajoutez un plat d’abord.');return;}
+
+function addToCart(name,price,size){
+const found=cart.find(x=>x.name===name&&x.size===size);
+if(found)found.qty++;
+else cart.push({name,price,size,qty:1});
+renderCart();
+}
+
+function renderCart(){
+const box=document.getElementById("cartItems");
+box.innerHTML="";
+let total=0,count=0;
+
+if(!cart.length){
+box.textContent="Votre panier est vide.";
+}else{
+cart.forEach((item,index)=>{
+total+=item.price*item.qty;
+count+=item.qty;
+
+const row=document.createElement("div");
+row.className="cart-line";
+
+const label=document.createElement("div");
+label.className="cart-name";
+label.textContent=item.name+(item.size?" ("+item.size+")":"")+" — "+money(item.price);
+
+const controls=document.createElement("div");
+controls.className="controls";
+
+const minus=document.createElement("button");
+minus.textContent="−";
+minus.onclick=()=>{item.qty--;if(item.qty<1)cart.splice(index,1);renderCart();};
+
+const qty=document.createElement("strong");
+qty.textContent=item.qty;
+
+const plus=document.createElement("button");
+plus.textContent="+";
+plus.onclick=()=>{item.qty++;renderCart();};
+
+const remove=document.createElement("button");
+remove.textContent="Supprimer";
+remove.onclick=()=>{cart.splice(index,1);renderCart();};
+
+controls.append(minus,qty,plus,remove);
+row.append(label,controls);
+box.appendChild(row);
+});
+}
+
+document.getElementById("total").textContent=money(total);
+}
+
+document.getElementById("order").onclick=()=>{
+if(!cart.length){alert("Votre panier est vide. Ajoutez un plat.");return;}
 let total=0;
 const lines=cart.map(item=>{
-const sub=item.price*item.qty;total+=sub;
-return '• '+item.name+(item.size?' ('+item.size+')':'')+' x '+item.qty+' = '+money(sub);
+const subtotal=item.price*item.qty;
+total+=subtotal;
+return "• "+item.name+(item.size?" ("+item.size+")":"")+" x "+item.qty+" = "+money(subtotal);
 });
-const msg='Bonjour Fox Burger ! Je souhaite commander :\n\n'+lines.join('\n')+'\n\nTOTAL ESTIMÉ : '+money(total)+'\n\nMerci de confirmer ma commande.';
-window.open('https://wa.me/'+PHONE+'?text='+encodeURIComponent(msg),'_blank');
-});
-document.getElementById('reservationForm').addEventListener('submit',e=>{
+const msg="Bonjour Fox Burger ! Je souhaite commander :\n\n"+lines.join("\n")+"\n\nTOTAL ESTIMÉ : "+money(total)+"\nMerci de confirmer ma commande.";
+window.open("https://wa.me/"+PHONE+"?text="+encodeURIComponent(msg),"_blank");
+};
+
+document.getElementById("reservationForm").onsubmit=e=>{
 e.preventDefault();
-const name=document.getElementById('resName').value.trim();
-const phone=document.getElementById('resPhone').value.trim();
-const date=document.getElementById('resDate').value;
-const time=document.getElementById('resTime').value;
-const people=document.getElementById('resPeople').value;
-const notes=document.getElementById('resNotes').value.trim();
-const msg='Bonjour Fox Burger ! Je souhaite demander une réservation.\nNom : '+name+'\nTéléphone : '+phone+'\nDate : '+date+'\nHeure : '+time+'\nNombre de personnes : '+people+'\nMessage : '+(notes||'Aucun');
-window.open('https://wa.me/'+PHONE+'?text='+encodeURIComponent(msg),'_blank');
-});
-document.getElementById('year').textContent=new Date().getFullYear();
-renderMenu();renderCart();
-})();
+const msg="Bonjour Fox Burger ! Je souhaite demander une réservation.\n"+
+"Nom : "+document.getElementById("name").value+"\n"+
+"Téléphone : "+document.getElementById("phone").value+"\n"+
+"Date : "+document.getElementById("date").value+"\n"+
+"Heure : "+document.getElementById("time").value+"\n"+
+"Nombre de personnes : "+document.getElementById("people").value+"\n"+
+"Message : "+(document.getElementById("notes").value||"Aucun");
+window.open("https://wa.me/"+PHONE+"?text="+encodeURIComponent(msg),"_blank");
+};
+
+document.getElementById("year").textContent=new Date().getFullYear();
+search.addEventListener("input",renderMenu);
+renderMenu();
+renderCart();
 </script>
 </body>
 </html>
