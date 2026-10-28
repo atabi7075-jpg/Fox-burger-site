@@ -145,33 +145,148 @@ footer { border-top: 1px solid #333; padding: 25px 0; color: var(--muted); }
 </div>
 </section>
 
-<section id="menu">
-<div class="container">
-<div class="eyebrow">NOS SPÉCIALITÉS</div>
-<h2>Le menu</h2>
-<div class="cards">
-<div class="card">
-<div class="food-icon">🍔</div>
-<h3>Burgers</h3>
-<p>Des burgers gourmands pour toutes les envies.</p>
-<div class="price">Prix à confirmer</div>
-</div>
-<div class="card">
-<div class="food-icon">🌮</div>
-<h3>Tacos</h3>
-<p>Une pause savoureuse et généreuse.</p>
-<div class="price">Prix à confirmer</div>
-</div>
-<div class="card">
-<div class="food-icon">🔥</div>
-<h3>Grillades</h3>
-<p>Découvrez les spécialités disponibles au restaurant.</p>
-<div class="price">Prix à confirmer</div>
-</div>
-</div>
-<p class="note">Menu de présentation : demandez au restaurant les plats disponibles et les prix actuels.</p>
-</div>
+
+<section id="menu" style="background:#101010;color:#fff5ec;padding:45px 5%">
+<style>
+#menu h2{font-size:36px}
+#menu h3{color:#ff6b1a;border-bottom:1px solid #444;padding-bottom:8px;margin-top:32px}
+#menu input{width:100%;padding:14px;border-radius:10px;background:#222;color:white;border:1px solid #555;margin:15px 0}
+#menu .filters{display:flex;gap:8px;flex-wrap:wrap}
+#menu button{background:#ff6b1a;color:#17100b;border:0;border-radius:20px;padding:10px 13px;font-weight:bold}
+#menu .items{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:9px}
+#menu .item{background:#1c1c1c;border:1px solid #333;border-radius:10px;padding:13px;display:flex;justify-content:space-between;gap:10px}
+#menu .price{color:#ff8a43;font-weight:bold;white-space:nowrap}
+</style>
+
+<div style="color:#ff6b1a;letter-spacing:3px">FOX BURGER</div>
+<h2>🍔 Notre Menu</h2>
+<p style="color:#bbb">Découvrez nos spécialités et choisissez votre plat préféré.</p>
+<input id="foodSearch" placeholder="🔎 Rechercher un plat...">
+<div class="filters" id="foodFilters"></div>
+<div id="foodMenu"></div>
+<p style="color:#bbb;font-size:13px">Prix en dirhams marocains (DH).</p>
+<a href="https://wa.me/212717774645" target="_blank" rel="noopener"
+style="display:inline-block;background:#ff6b1a;color:#111;padding:13px 18px;border-radius:25px;text-decoration:none;font-weight:bold">
+Commander sur WhatsApp ↗</a>
 </section>
+
+<script>
+(function(){
+const data = {
+"SANDWICHES": [
+["Sandwiche Thon","12"],["Sandwiche Dinde","15"],
+["Sandwiche Kefta","15"],["Sandwiche Escalope","15"],
+["Sandwiche Poulet","15"],["Sandwiche Hotdog","12"],
+["Sandwiche Mixte","15"]],
+"CHIKAS": [
+["Chika Dinde","25"],["Chika Kefta","25"],
+["Chika Escalope","25"],["Chika Mixte","28"],
+["Chika Blinde","30"]],
+"PANINIS": [
+["Panini Thon","15"],["Panini Dinde","16"],
+["Panini Kefta","18"],["Panini Escalope","18"],
+["Panini Merguez","18"],["Panini Hotdog","18"],
+["Panini Mixte","22"]],
+"SALADES": [
+["Salade Eco","10"],["Salade Niçoise","15"],
+["Salade Summi","17"],["Salade Avocat Fish","25"],
+["Salade Spécial","30"]],
+"TACOS": [
+["Tacos Dinde","27"],["Tacos Kefta","27"],
+["Tacos Escalope","27"],["Tacos Hot dog","25"],
+["Tacos Gratiné","30"],["Tacos Mixte","32"]],
+"PLATS": [
+["Plat Dinde","27"],["Plat Kefta","30"],
+["Plat Escalope","27"],["Plat Chicken","27"],
+["Plat Mixte","36"],["Plat Wings","25"]],
+"BURGERS": [
+["Hamburger","15"],["Cheese Burger","18"],
+["Chicken Burger","18"],["Double Cheese","25"],
+["Double Chicken","25"],["Fox Burger","27"]],
+"POULETS": [
+["1/4 Poulet","25"],["1/2 Poulet","50"],
+["1 Poulet Entier","100"]],
+"PASTICCIO": [
+["Pasticcio dinde","22"],["Pasticcio kefta","22"],
+["Pasticcio escalope","22"],["Pasticcio mixte","25"]],
+"PIZZAS": [
+["Pizza Margherita petite / grande","18 / 28"],
+["Pizza Kefta petite / grande","28 / 40"],
+["Pizza Thon petite / grande","25 / 35"],
+["Pizza Chika petite / grande","25 / 35"],
+["Pizza 4 Saisons petite / grande","35 / 50"],
+["Pizza Fox petite / grande","30 / 45"],
+["Pizza Fruits de mer petite / grande","40 / 55"]],
+"BOISSONS": [
+["Jus d'orange","13"],["Jus de pomme","12"],
+["Jus de banane","12"],["Jus de citron","12"],
+["Jus de carotte","12"],["Jus de betterave","12"],
+["Jus de concombre","12"],["Mojito","15"],
+["Jus de pêche","15"],["Jus d'avocat","15"],
+["Jus d'avocat aux fruits secs","20"],
+["Eau minérale 1/2","05"],["Canette 33cl","05"],
+["Pepsi 1L","10"]],
+"DESSERTS": [
+["Tiramisu","15"],["Mousse Chocolat","12"],
+["Cheese Cake","16"]],
+"MENUS": [
+["MISTRAL","35"],["LE ROYALE","35"],
+["FONCTIONNAIRE","30"],["TWIX","35"],
+["MENU JUNIOR","30"],["MENU DUO","33"]],
+"SUPPLEMENTS": [
+["Wings (4p)","10"],["Sauce","02"],
+["Nuggets","15"],["Fromage","02"],["Oeuf","02"]]
+};
+
+const filters=document.getElementById("foodFilters");
+const output=document.getElementById("foodMenu");
+const search=document.getElementById("foodSearch");
+let selected="TOUT";
+
+function render(){
+ filters.innerHTML="";
+ ["TOUT",...Object.keys(data)].forEach(cat=>{
+  const b=document.createElement("button");
+  b.textContent=cat;
+  b.style.margin="4px";
+  b.style.background=selected===cat?"#ff6b1a":"#292929";
+  b.style.color="white";
+  b.onclick=()=>{selected=cat;render()};
+  filters.appendChild(b);
+ });
+ output.innerHTML="";
+ const q=search.value.toLowerCase().trim();
+ Object.entries(data).forEach(([cat,items])=>{
+  if(selected!=="TOUT"&&selected!==cat)return;
+  const matches=items.filter(([name,price])=>
+   (name+" "+price+" "+cat).toLowerCase().includes(q));
+  if(!matches.length)return;
+  const section=document.createElement("div");
+  const heading=document.createElement("h3");
+  heading.textContent="NOS "+cat;
+  section.appendChild(heading);
+  const grid=document.createElement("div");
+  grid.className="items";
+  matches.forEach(([name,price])=>{
+   const row=document.createElement("div");
+   row.className="item";
+   const n=document.createElement("span");
+   n.textContent=name;
+   const p=document.createElement("span");
+   p.className="price";
+   p.textContent=price.includes("/")?price+" DH":" "+price+" DH";
+   row.append(n,p);
+   grid.appendChild(row);
+  });
+  section.appendChild(grid);
+  output.appendChild(section);
+ });
+ if(!output.children.length)output.textContent="Aucun plat trouvé.";
+}
+search.addEventListener("input",render);
+render();
+})();
+</script>
 
 <section id="location">
 <div class="container">
